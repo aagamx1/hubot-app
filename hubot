@@ -1,0 +1,21 @@
+#!/bin/sh
+
+set -e
+export HUBOT_ADAPTER=slack
+export HUBOT_SLACK_TOKEN=xoxb-399223035846-399011143223-f2sAGLO8EItYo2XGkvlkfEfG
+
+#For Jenkins
+#export HUBOT_JENKINS_URL=http://agam:gammix01@localhost:8888
+export HUBOT_JENKINS_URL=https://tu7z:May@1234@jenkins.devinf.allegiantair.com
+
+#For hubot-slack-jenkins-chatops
+export HUBOT_SLACK_VERIFICATION_TOKEN=xoxb-399223035846-399011143223-f2sAGLO8EItYo2XGkvlkfEfG
+
+#For hubot script jenkins module
+#export HUBOT_JENKINS_URL=http://localhost:8888
+#export HUBOT_JENKINS_AUTH=agam:gammix01
+
+npm install
+export PATH="node_modules/.bin:node_modules/hubot/node_modules/.bin:$PATH"
+
+exec node_modules/.bin/hubot --name "DevOps_bot" "$@" --adapter slack

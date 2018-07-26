@@ -1,0 +1,32 @@
+FROM node:6.10.0-alpine
+MAINTAINER  Agam
+
+WORKDIR /root
+RUN npm install -g yo generator-hubot
+
+#RUN useradd -ms /bin/bash devops_bot
+#RUN adduser -D -u 1000 devops_bot
+RUN addgroup -S devops_bot && adduser -S -G devops_bot devops_bot
+#RUN addgroup -g 1000 -S devops_bot && \
+#    adduser -u 1000 -S devops_bot -G devops_bot
+ENV HOME /home/devops_bot
+
+# variables needed by hubot scripts
+#ADD env-vars.sh /home/devops_bot/.profile
+#RUN chown devops_bot /home/devops_bot/.profile
+
+USER devops_bot
+WORkDIR /home/devops_bot
+RUN echo n | yo hubot --owner aagamx1@gmail.com --adapter slack --name devops_bot --description Bot
+#RUN npm install hubot-slack hubot-scripts githubot --save
+
+# enable plugins
+#RUN echo [ \"hubot-slack-jenkins-chatops\" ] > external-scripts.json
+#ADD hubot-scripts.json external-scripts.json hubot-jenkins /home/devops_bot/
+#ADD hubot /home/devops_bot/bin/
+ADD devops_bot/ /home/devops_bot/
+
+#CMD ["/home/devops_bot/bin/hubot"]
+
+
+EXPOSE 8282
