@@ -12,8 +12,9 @@ ENV HOME /home/agam
 USER agam
 WORkDIR /home/agam
 
-ADD --chown=agam:agam devops_bot/ /home/agam/devops_bot/
+ADD --chown=agam:agam devops_bot/ /home/agam/devops_bot
 #RUN chown -R agam:agam /home/agam/devops_bot/
 
-#CMD ["/home/devops_bot/bin/hubot"]
+#USER root
+#CMD ["/home/agam/devops_bot/bin/hubot"]
 

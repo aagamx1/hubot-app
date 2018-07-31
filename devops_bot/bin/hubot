@@ -4,15 +4,16 @@ set -e
 export HUBOT_ADAPTER=slack
 export HUBOT_SLACK_TOKEN=xoxb-399223035846-399011143223-f2sAGLO8EItYo2XGkvlkfEfG
 
-#For hubot-slack-jenkins-chatops module
-#export HUBOT_JENKINS_URL=http://agam:agam@172.17.0.1:8181
+#For Jenkins
+export HUBOT_JENKINS_URL=http://agam:agam@172.17.0.1:8181
+#export HUBOT_JENKINS_URL=https://tu7z:May@1234@jenkins.devinf.allegiantair.com
 
 #For hubot-slack-jenkins-chatops
 export HUBOT_SLACK_VERIFICATION_TOKEN=xoxb-399223035846-399011143223-f2sAGLO8EItYo2XGkvlkfEfG
 
 #For hubot script jenkins module
-export HUBOT_JENKINS_URL=http://172.17.0.1:8181
-export HUBOT_JENKINS_AUTH=agam:agam
+#export HUBOT_JENKINS_URL=http://172.17.0.1:8181
+#export HUBOT_JENKINS_AUTH=agam:agam
 
 npm install
 export PATH="node_modules/.bin:node_modules/hubot/node_modules/.bin:$PATH"
